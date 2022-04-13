@@ -20,6 +20,7 @@
 				<th scope="col">Expense</th>
 				<th scope="col">Vendor</th>
 				<th scope="col">Amount</th>
+				<th scope="col">Actions</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -28,6 +29,11 @@
 					<td scope="row">${expense.name }</td>
 					<td><c:out value="${expense.vendor }" /></td>
 					<td><c:out value="${expense.amount }" /></td>
+					<td class="d-flex align-content-center"><a class="btn btn-link" href="/expenses/edit/${expense.id }">Edit</a>
+						<form action="/expenses/delete/${expense.id}" method="post">
+							<input type="hidden" name="_method" value="delete"> 
+							<input type="submit" value="Delete" class="btn btn-link">
+						</form></td>
 				</tr>
 			</c:forEach>
 		</tbody>
