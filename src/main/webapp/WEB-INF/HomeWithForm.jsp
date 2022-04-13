@@ -26,7 +26,7 @@
 		<tbody>
 			<c:forEach var="expense" items="${expenses }">
 				<tr>
-					<td scope="row">${expense.name }</td>
+					<td scope="row"><a href="/expenses/${expense.id }">${expense.name }</a></td>
 					<td><c:out value="${expense.vendor }" /></td>
 					<td><c:out value="${expense.amount }" /></td>
 					<td class="d-flex align-content-center"><a class="btn btn-link" href="/expenses/edit/${expense.id }">Edit</a>

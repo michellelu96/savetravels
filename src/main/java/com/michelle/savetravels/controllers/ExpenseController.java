@@ -31,6 +31,12 @@ public class ExpenseController {
 		return "HomeWithForm.jsp";
 	}
 	
+	@GetMapping("/expenses/{id}")
+	public String expenses(@PathVariable("id") Long id,Model model) {
+		Expense expense = expenseService.findExpense(id);
+		model.addAttribute("expense", expense);
+		return "oneExpense.jsp";
+	}
 	
 	@PostMapping("/expenses")
 	public String create(@Valid @ModelAttribute("expense") Expense expense, BindingResult result,Model model) {
